@@ -1,0 +1,299 @@
+/* Winding island routes for the adventure map. */
+.world-map {
+  max-width: 1060px;
+}
+
+.zone {
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 54px 82px 48px 74px;
+}
+
+.zone:nth-child(odd) {
+  margin-right: 7%;
+}
+
+.zone:nth-child(even) {
+  margin-left: 7%;
+  border-radius: 78px 48px 82px 52px;
+}
+
+.map-path {
+  position: relative;
+  min-height: 720px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.map-path::before {
+  display: none;
+}
+
+.winding-route {
+  position: absolute;
+  z-index: 1;
+  inset: 3% 5% 3%;
+  width: 90%;
+  height: 94%;
+  overflow: visible;
+  filter: drop-shadow(0 7px 2px rgb(77 58 35 / 0.3));
+}
+
+.route-reverse .winding-route {
+  transform: scaleX(-1);
+}
+
+.winding-route path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.route-shadow {
+  stroke: #8c633d;
+  stroke-width: 30;
+}
+
+.route-road {
+  stroke: #fff2b8;
+  stroke-width: 22;
+}
+
+.route-dashes {
+  stroke: #d5aa55;
+  stroke-width: 4;
+  stroke-dasharray: 2 13;
+}
+
+.stage-stop {
+  position: absolute;
+  z-index: 4;
+  width: 270px;
+  min-height: 0;
+  padding: 0 !important;
+  transform: translate(-50%, -50%);
+}
+
+.stage-stop.bend-0 {
+  left: 20%;
+  top: 9%;
+}
+
+.stage-stop.bend-1 {
+  left: 62%;
+  top: 24%;
+}
+
+.stage-stop.bend-2 {
+  left: 76%;
+  top: 42%;
+}
+
+.stage-stop.bend-3 {
+  left: 52%;
+  top: 59%;
+}
+
+.stage-stop.bend-4 {
+  left: 22%;
+  top: 76%;
+}
+
+.stage-stop.bend-5 {
+  left: 62%;
+  top: 92%;
+}
+
+.route-reverse .stage-stop.bend-0 {
+  left: 80%;
+}
+
+.route-reverse .stage-stop.bend-1 {
+  left: 38%;
+}
+
+.route-reverse .stage-stop.bend-2 {
+  left: 24%;
+}
+
+.route-reverse .stage-stop.bend-3 {
+  left: 48%;
+}
+
+.route-reverse .stage-stop.bend-4 {
+  left: 78%;
+}
+
+.route-reverse .stage-stop.bend-5 {
+  left: 38%;
+}
+
+.stage-stop button {
+  min-width: 0;
+  border-radius: 28px;
+}
+
+.stage-stop.current button {
+  outline-offset: 3px;
+}
+
+.map-scenery {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scenery {
+  position: absolute;
+  font-size: clamp(29px, 5vw, 55px);
+  filter: drop-shadow(0 5px 1px rgb(44 58 31 / 0.25));
+  opacity: 0.9;
+}
+
+.scenery-0 {
+  left: 48%;
+  top: 7%;
+}
+
+.scenery-1 {
+  right: 8%;
+  top: 17%;
+}
+
+.scenery-2 {
+  left: 8%;
+  top: 43%;
+}
+
+.scenery-3 {
+  right: 10%;
+  top: 63%;
+}
+
+.scenery-4 {
+  left: 40%;
+  top: 80%;
+}
+
+.map-avatar {
+  top: -66px;
+}
+
+.map-avatar.walking {
+  animation: island-hop 1.45s ease-in-out both;
+}
+
+@keyframes island-hop {
+  0% {
+    transform: translate(-50%, 0) rotate(-5deg);
+  }
+  35% {
+    transform: translate(-20%, 28px) rotate(7deg);
+  }
+  70% {
+    transform: translate(-78%, 62px) rotate(-7deg);
+  }
+  100% {
+    transform: translate(-50%, 105px) scale(0.82);
+  }
+}
+
+@media (max-width: 720px) {
+  .zone:nth-child(odd),
+  .zone:nth-child(even) {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 34px 48px 38px 52px;
+  }
+
+  .map-path {
+    min-height: 690px;
+  }
+
+  .winding-route {
+    left: 2%;
+    right: auto;
+    width: 96%;
+  }
+
+  .route-shadow {
+    stroke-width: 23;
+  }
+
+  .route-road {
+    stroke-width: 17;
+  }
+
+  .stage-stop {
+    width: min(190px, 54vw);
+  }
+
+  .stage-stop.bend-0 {
+    left: 28%;
+  }
+
+  .stage-stop.bend-1 {
+    left: 67%;
+  }
+
+  .stage-stop.bend-2 {
+    left: 70%;
+  }
+
+  .stage-stop.bend-3 {
+    left: 48%;
+  }
+
+  .stage-stop.bend-4 {
+    left: 28%;
+  }
+
+  .stage-stop.bend-5 {
+    left: 65%;
+  }
+
+  .route-reverse .stage-stop.bend-0 {
+    left: 72%;
+  }
+
+  .route-reverse .stage-stop.bend-1 {
+    left: 33%;
+  }
+
+  .route-reverse .stage-stop.bend-2 {
+    left: 30%;
+  }
+
+  .route-reverse .stage-stop.bend-3 {
+    left: 52%;
+  }
+
+  .route-reverse .stage-stop.bend-4 {
+    left: 72%;
+  }
+
+  .route-reverse .stage-stop.bend-5 {
+    left: 35%;
+  }
+
+  .node-copy b {
+    font-size: 13px;
+  }
+
+  .node-copy small {
+    font-size: 9px;
+  }
+
+  .scenery {
+    font-size: 30px;
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-avatar.walking {
+    animation: none;
+  }
+}

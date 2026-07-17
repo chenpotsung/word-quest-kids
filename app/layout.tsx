@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./map-path.css";
 
-const basePath = process.env.GITHUB_ACTIONS === "true" ? "/word-quest-kids" : "";
+const basePath =
+  process.env.GITHUB_ACTIONS === "true" ? "/word-quest-kids" : "";
 
 export const metadata: Metadata = {
   title: "Word Quest Kids｜英文大富翁冒險",
