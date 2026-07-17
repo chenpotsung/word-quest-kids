@@ -476,14 +476,9 @@ function StageGame({
         ((b.word.charCodeAt(0) + step) % 7),
     );
   }, [current, step]);
-  useEffect(() => {
-    const timer = window.setTimeout(() => speakWord(current.word), 400);
-    return () => window.clearTimeout(timer);
-  }, [current.word]);
   const choose = (word: string) => {
     if (picked) return;
     setPicked(word);
-    speakWord(word);
     const correct = word === current.word;
     if (correct) setScore((value) => value + 1);
     window.setTimeout(() => {
@@ -574,7 +569,7 @@ function StageGame({
                 <WordPicture card={current} />
                 <i>🔊</i>
               </button>
-              <p>這張圖的英文是什麼？</p>
+              <p>這張圖的英文是什麼？需要時可點圖片上的 🔊 聽發音。</p>
               <div className="quiz-answers">
                 {choices.map((card) => (
                   <button
@@ -594,7 +589,7 @@ function StageGame({
                     <small>
                       {picked && card.word === current.word
                         ? card.zh
-                        : "點一下聽發音"}
+                        : "選擇答案"}
                     </small>
                   </button>
                 ))}
